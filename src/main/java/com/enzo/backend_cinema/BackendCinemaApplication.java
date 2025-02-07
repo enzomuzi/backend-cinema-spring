@@ -21,8 +21,9 @@ CommandLineRunner initDatabase(FilmRepository filmRepository) {
 
 		Film f = new Film();
 		f.setName("Aviões");
-		f.setDescription("Filme de criança");
+		f.setLanguage("Dublado");
 		f.setHours("20H00");
+		f.setImg("https://material.angular.io/assets/img/examples/shiba2.jpg");
 
 		filmRepository.save(f);
 	};
