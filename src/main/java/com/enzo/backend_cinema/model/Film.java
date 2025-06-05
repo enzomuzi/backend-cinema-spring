@@ -34,5 +34,45 @@ public class Film {
     @Column(length= 200, nullable = false)
     private String img;
 
+    // Getters
+    public String getName() {
+        return name;
+    }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
