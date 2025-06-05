@@ -44,6 +44,20 @@ public class FilmsController {
             .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Film> update(@PathVariable Long id,
+        @RequestBody Film film) {
+            return filmRepository.findById(id)
+                .map(recordFound -> {
+                    recordFound.setName(film.getName());
+                    recordFound.setLanguage(film.getLanguage());
+                    recordFound.setHours(film.getHours());
+                    recordFound.setImg(film.getImg());
+                    Film updated = filmRepository.save(recordFound);
+                    return ResponseEntity.ok().body(updated);
+                }).orElse(ResponseEntity.notFound().build());
+    }
+
     // aqui cria o filme
     @PostMapping
     public ResponseEntity<Film> create(@RequestBody Film film) {
@@ -51,13 +65,12 @@ public class FilmsController {
     }
     
     // aqui deleta o filme
-    @DeleteMapping(value="/{id}")
-    public ResponseEntity <Void> delete(@PathVariable("id") Long id,
-                                    @RequestBody Film film) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         return filmRepository.findById(id)
-            .map(record -> {
-                filmRepository.delete(record);
-                return ResponseEntity.ok().<Void>build();
-            }).orElse(ResponseEntity.notFound().build());
-    }        
+                .map(recordFound -> {
+                    filmRepository.deleteById(id);
+                    return ResponseEntity.noContent().<Void>build();
+        }).orElse(ResponseEntity.notFound().build());
+    }   
 }
