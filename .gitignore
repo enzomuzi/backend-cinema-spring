@@ -6,8 +6,6 @@ target/
 
 ### Configuration files ###
 application.properties
-application.yml
-compose.yaml
 
 ### STS ###
 .apt_generated
