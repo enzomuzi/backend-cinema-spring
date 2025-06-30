@@ -1,0 +1,4 @@
+com/enzo/backend_cinema/model/Film.class
+com/enzo/backend_cinema/controller/FilmsController.class
+com/enzo/backend_cinema/BackendCinemaApplication.class
+com/enzo/backend_cinema/repository/FilmRepository.class
